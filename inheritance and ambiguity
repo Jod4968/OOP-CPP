@@ -33,7 +33,7 @@ protected:
 
 public:
     void setFaculty(string name, string facultycode, double salary,
-                    string dept, int age, int exp, string gender) {
+    string dept, int age, int exp, string gender) {
         this->name = name;
         this->facultycode = facultycode;
         this->salary = salary;
@@ -43,26 +43,25 @@ public:
         this->gender = gender;
     }
     void display() {
-        cout << "\nFaculty Details\n";
-        cout << "name : " << name << endl;
-        cout << "facultycode : " << facultycode << endl;
-        cout << "salary : " << salary << endl;
-        cout << "dept : " << dept << endl;
-        cout << "age : " << age << endl;
-        cout << "exp : " << exp << endl;
-        cout << "gender : " << gender << endl;
+        cout << "Faculty Details\n";
+        cout << "name : " << name <<endl;
+        cout << "facultycode : " << facultycode <<endl;
+        cout << "salary : " << salary <<endl;
+        cout << "dept : " << dept <<endl;
+        cout << "age : " << age <<endl;
+        cout << "exp : " << exp <<endl;
+        cout << "gender : " << gender <<endl;
     }
 };
 class Person : public Student, public Faculty {
 public:
     void displayBoth() {
         Student::display();
-        Faculty::display();
-    }
+        Faculty::display();}
 };
 int main() {
     Person p;
-    p.setStudent("Ajay", 19, 67565, 45.45);
+    p.setStudent("Ajay", 19, 67565, 45.45); //for user define input use getline while taking name
     p.setFaculty("  John"," 36E0",34545,"CSE",23,4,"male");
     
     p.displayBoth();
