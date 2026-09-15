@@ -1,0 +1,62 @@
+//overriding startengine class but not fuel
+
+#include <bits/stdc++.h>
+using namespace std;
+class vehicle{
+    public:
+    void startEngine(){
+        cout<<"Engine is started"<<endl;
+    }
+    
+    void fuelType(){
+        cout<<"this vehicle runs on petrol"<<endl;
+    }
+};
+
+class car : public vehicle{
+    public:
+    void startEngine(){
+        cout<<"Engine is not started"<<endl;
+    }
+};
+
+class bike : public vehicle{
+    public:
+    void startEngine(){
+        cout<<"Engine is not started"<<endl;
+    }
+};
+
+class truck : public vehicle{
+    public:
+    void startEngine(){
+        cout<<"Engine is started"<<endl;
+    }
+};
+
+class airplane : public vehicle{
+    public:
+    void startEngine(){
+        cout<<"Engine is not started"<<endl;
+    }
+};
+
+int main(){
+    car c;
+    bike b;
+    truck t;
+    airplane a;
+    
+    c.startEngine();
+    c.fuelType();
+    
+     b.startEngine();
+    b.fuelType();
+    
+     t.startEngine();
+    t.fuelType();
+    
+     a.startEngine();
+    a.fuelType();
+    
+}
