@@ -1,0 +1,72 @@
+//Multiple Inheritance and Multilevel/Hierarchical level
+#include <iostream>
+#include <string>
+using namespace std;
+class vehicle {
+public:
+    string manufacturer;
+    int horsepower;
+    vehicle(string a, int b) {
+        manufacturer = a;
+        horsepower = b;
+    }
+    void display() {
+        cout << "Manufacturer: " << manufacturer << endl;
+        cout << "Horsepower: " << horsepower << endl;
+    }
+};
+class petrolvehicle : public vehicle {
+public:
+    int fuelCapacity;
+
+    petrolvehicle(string manufacturer, int horsepower, int fuel)
+        : vehicle(manufacturer, horsepower) {
+        fuelCapacity = fuel;
+    }
+
+    void refuel() {
+        cout << "Vehicle is refuelling" << endl;
+    }
+};
+
+class electricvehicle : public vehicle {
+public:
+    int batteryCapacity;
+
+    electricvehicle(string manufacturer, int horsepower, int battery)
+        : vehicle(manufacturer, horsepower) {
+        batteryCapacity = battery;
+    }
+
+    void recharge() {
+        cout << "Vehicle is recharging" << endl;
+    }
+};
+
+class hybridvehicle : public virtual petrolvehicle , public virtual electricvehicle{
+public:
+    string vehiclename;
+
+    hybridvehicle(string name)
+        : petrolvehicle("TATA", 700, 200),
+          electricvehicle("TATA", 700, 100) {
+        vehiclename = name;
+    }
+
+    void displayalldata() {
+        cout << "Vehicle name: " << vehiclename << endl;
+        cout << "Fuel capacity: " << fuelCapacity << endl;
+        petrolvehicle :: display();
+        electricvehicle :: display();
+        cout << "Battery capacity: " << batteryCapacity << endl;
+        refuel();
+        recharge();
+    }
+};
+
+int main() {
+    vehicle v("TATA", 700);
+    petrolvehicle p("TATA", 700, 200);
+    electricvehicle e("TATA", 700, 100);
+    hybridvehicle h("Car");
+    h.displayalldata();}
